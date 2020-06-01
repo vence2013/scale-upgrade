@@ -1,5 +1,6 @@
 #include "em_chip.h"
 #include "bsp_trace.h"
+#include "driver.h"
 #include "debug.h"
 
 int main(void)
@@ -9,8 +10,13 @@ int main(void)
 	/* If first word of user data page is non-zero, enable Energy Profiler trace */
 	BSP_TraceProfilerSetup();
 
+	Driver_setup();
+
+	//DBG_dac();
+
 	/* Infinite loop */
 	while (1) {
 		DBG_blinky();
+		DBG_usart();
 	}
 }
