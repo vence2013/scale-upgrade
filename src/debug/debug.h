@@ -15,7 +15,9 @@
 void DBG_data_size( void );
 void DBG_blinky( void );
 void DBG_usart( void );
-void DBG_dac( void );
+void DBG_dac_voltage( void );
+void DBG_dac_sine( void );
+void DBG_adc_single( void );
 
 
 #endif

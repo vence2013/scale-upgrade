@@ -12,11 +12,11 @@ int main(void)
 
 	Driver_setup();
 
-	//DBG_dac();
+	DBG_adc_single();
 
 	/* Infinite loop */
 	while (1) {
 		DBG_blinky();
-		DBG_usart();
+		//DBG_dac_sine();
 	}
 }
