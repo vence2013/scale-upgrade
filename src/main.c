@@ -12,7 +12,7 @@ int main(void)
 
 	Driver_setup();
 
-	DBG_opamp_adc();
+	DBG_lcd();
 
 	/* Infinite loop */
 	while (1) {

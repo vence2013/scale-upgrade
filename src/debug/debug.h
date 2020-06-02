@@ -19,6 +19,6 @@ void DBG_dac_voltage( void );
 void DBG_dac_sine( void );
 void DBG_adc_single( void );
 void DBG_opamp_adc( void );
-
+void DBG_lcd( void );
 
 #endif

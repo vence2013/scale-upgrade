@@ -31,6 +31,11 @@
 			<location>C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/gecko_sdk_suite/v2.7/hardware/kit/common/bsp/bsp_trace.c</location>
 		</link>
 		<link>
+			<name>drivers/segmentlcd.c</name>
+			<type>1</type>
+			<location>C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/gecko_sdk_suite/v2.7/hardware/kit/common/drivers/segmentlcd.c</location>
+		</link>
+		<link>
 			<name>emlib/em_adc.c</name>
 			<type>1</type>
 			<location>C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/gecko_sdk_suite/v2.7/platform/emlib/src/em_adc.c</location>
@@ -49,6 +54,11 @@
 			<name>emlib/em_gpio.c</name>
 			<type>1</type>
 			<location>C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/gecko_sdk_suite/v2.7/platform/emlib/src/em_gpio.c</location>
+		</link>
+		<link>
+			<name>emlib/em_lcd.c</name>
+			<type>1</type>
+			<location>C:/SiliconLabs/SimplicityStudio/v4/developer/sdks/gecko_sdk_suite/v2.7/platform/emlib/src/em_lcd.c</location>
 		</link>
 		<link>
 			<name>emlib/em_opamp.c</name>
