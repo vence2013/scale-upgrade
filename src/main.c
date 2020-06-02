@@ -1,6 +1,7 @@
 #include "em_chip.h"
 #include "bsp_trace.h"
 #include "driver.h"
+#include "scale.h"
 #include "debug.h"
 
 int main(void)
@@ -12,11 +13,8 @@ int main(void)
 
 	Driver_setup();
 
-	DBG_lcd();
-
 	/* Infinite loop */
 	while (1) {
-		DBG_blinky();
-		DBG_usart();
+		scale_application();
 	}
 }
