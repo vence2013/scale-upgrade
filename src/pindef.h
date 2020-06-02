@@ -14,8 +14,8 @@
 #define LED0_Pin                                                  (2)
 #define LED1_Pin                                                  (3)
 
-/* UART1 */
-#define UART_Print_Port                                   (gpioPortD)
+/* USART0 */
+#define UART_Print_Port                                   (gpioPortC)
 #define UART_Print_RX_Pin                                         (1)
 #define UART_Print_TX_Pin                                         (0)
 

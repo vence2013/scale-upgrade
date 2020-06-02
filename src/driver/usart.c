@@ -14,7 +14,7 @@ volatile struct circularBuffer
   u8  overflow;          /* buffer overflow indicator */
 } rxBuf, txBuf = { {0}, 0, 0, 0, 0 };
 
-static USART_TypeDef* uart   = USART1;
+static USART_TypeDef* uart   = USART0;
 
 
 /**************************************************************************//**
@@ -25,7 +25,7 @@ static USART_TypeDef* uart   = USART1;
  * Note that this function handles overflows in a very simple way.
  *
  *****************************************************************************/
-void USART1_RX_IRQHandler(void)
+void USART0_RX_IRQHandler(void)
 {
 	/* Check for RX data valid interrupt */
 	if (uart->STATUS & UART_STATUS_RXDATAV)
@@ -54,7 +54,7 @@ void USART1_RX_IRQHandler(void)
  * Set up the interrupt prior to use
  *
  *****************************************************************************/
-void USART1_TX_IRQHandler(void)
+void USART0_TX_IRQHandler(void)
 {
 	/* Clear interrupt flags by reading them. */
 	USART_IntGet(uart);
@@ -95,7 +95,7 @@ void usart_setup( void )
 	/* Enable clock for HF peripherals */
 	CMU_ClockEnable(cmuClock_HFPER, true);
 	/* Enable clock for USART module */
-	CMU_ClockEnable(cmuClock_USART1, true);
+	CMU_ClockEnable(cmuClock_USART0, true);
 
 	/* Prepare struct for initializing UART in asynchronous mode*/
 	uartInit.enable       = usartDisable;   /* Don't enable UART upon intialization */
@@ -113,15 +113,15 @@ void usart_setup( void )
 	USART_InitAsync(uart, &uartInit);
 
 	/* Enable I/O pins at USART1 location #2 */
-	uart->ROUTE = UART_ROUTE_RXPEN | UART_ROUTE_TXPEN | UART_ROUTE_LOCATION_LOC1;
+	uart->ROUTE = UART_ROUTE_RXPEN | UART_ROUTE_TXPEN | UART_ROUTE_LOCATION_LOC5;
 
 	/* Prepare UART Rx and Tx interrupts */
 	USART_IntClear(uart, _UART_IF_MASK);
 	USART_IntEnable(uart, UART_IF_RXDATAV);
-	NVIC_ClearPendingIRQ(USART1_RX_IRQn);
-	NVIC_ClearPendingIRQ(USART1_TX_IRQn);
-	NVIC_EnableIRQ(USART1_RX_IRQn);
-	NVIC_EnableIRQ(USART1_TX_IRQn);
+	NVIC_ClearPendingIRQ(USART0_RX_IRQn);
+	NVIC_ClearPendingIRQ(USART0_TX_IRQn);
+	NVIC_EnableIRQ(USART0_RX_IRQn);
+	NVIC_EnableIRQ(USART0_TX_IRQn);
 
 	/* Enable UART */
 	USART_Enable(uart, usartEnable);
